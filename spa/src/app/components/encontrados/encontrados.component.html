@@ -1,0 +1,19 @@
+
+<div class="card-columns " *ngIf="heroes.length > 0,else elseBlock ">
+    <h1>Resultados obtenidos {{ heroes.length }} <small>{{ terminoBusqueda }} </small></h1>
+
+    <div class="card shake-slow"  *ngFor="let heroe of heroes; let i = index">
+        <img class="card-img-top shake-constant shake-slow shake-constant" [src]="heroe.img" [alt]="heroe.name">
+        <div class="card-body">
+          <h5 class="card-title ">{{ heroe.nombre }}</h5>
+          <p class="card-text">{{ heroe.bio }}</p>
+          <p class="card-text"><small class="text-muted">{{ heroe.aparicion }}</small></p>
+          
+        </div>
+      </div>
+      
+           
+</div>
+<ng-template #elseBlock>
+    <h1>No hay resultados para : {{ terminoBusqueda }}</h1>    
+  </ng-template>
