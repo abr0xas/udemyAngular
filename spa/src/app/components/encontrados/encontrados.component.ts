@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HeroesService, Hereo } from 'src/app/services/heroes.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-encontrados',
@@ -12,7 +12,8 @@ export class EncontradosComponent implements OnInit {
   private terminoBusqueda:string;
 
   constructor(private _heroesService:HeroesService, 
-              private activatedRoute:ActivatedRoute) { }
+              private activatedRoute:ActivatedRoute,
+              private router:Router) { }
 
   ngOnInit() {
 
@@ -24,7 +25,12 @@ export class EncontradosComponent implements OnInit {
         console.log(this.heroes);
 
       });
-    
+  
   }
+
+  verHeroe(index:string){
+    this._heroesService.verHeroe(index);
+  }
+
 
 }

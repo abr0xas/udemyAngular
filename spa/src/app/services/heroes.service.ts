@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Injectable( )
 export class HeroesService {
@@ -55,7 +56,7 @@ export class HeroesService {
         }
       ];
 
-    constructor() {
+    constructor(private router:Router) {
         console.log("servicio listo para usarse!!!");
      }
 
@@ -85,6 +86,12 @@ export class HeroesService {
        return heroesArr;
         
      }
+
+     verHeroe(index:string){
+         
+        this.router.navigate(['/heroe',index])
+  }
+
 
      
     
