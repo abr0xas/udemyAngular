@@ -70,14 +70,14 @@ export class HeroesService {
      buscarHeroes(termino:string):Hereo[]{
        let heroesArr:Hereo[]=[];
        termino=termino.toLowerCase();
-
-       for(let heroe of this.heroes){
+      
+       for(let i=0; i<this.heroes.length; i++){
+         let heroe:Hereo=this.heroes[i];
+         heroe.id=i;
          let nombre = heroe.nombre.toLowerCase();
          
          if(nombre.indexOf(termino)>-1){
-           console.log("heroesArr");
            heroesArr.push(heroe);
-           console.log(heroesArr);
          }
 
        }
@@ -96,6 +96,7 @@ export interface Hereo{
     bio: string,
     img: string,
     aparicion: string,
-    casa:string
+    casa:string,
+    id?:number
 
  }
